@@ -19,31 +19,31 @@ const AppConfig = {
             {
                 nome: "Green",
                 imagem: green,
-                distancia: `${gerarNumero(1,500)}m`,
+                distancia: `${gerarNumero(1,500)}`,
                 estrelas: gerarNumero(1,5)
             },
             {
                 nome: "Salad",
                 imagem: salad,
-                distancia: `${gerarNumero(1,500)}m`,
+                distancia: `${gerarNumero(1,500)}`,
                 estrelas: gerarNumero(1,5)
             },
             {
                 nome: "Jenny Jack Farm",
                 imagem: jennyJack,
-                distancia: `${gerarNumero(1,500)}m`,
+                distancia: `${gerarNumero(1,500)}`,
                 estrelas: gerarNumero(1,5)
             },
             {
                 nome: "Grow",
                 imagem: grow,
-                distancia: `${gerarNumero(1,500)}m`,
+                distancia: `${gerarNumero(1,500)}`,
                 estrelas: gerarNumero(1,5)
             },
             {
                 nome: "Potager",
                 imagem: potager,
-                distancia: `${gerarNumero(1,500)}m`,
+                distancia: `${gerarNumero(1,500)}`,
                 estrelas: gerarNumero(1,5)
             },
         ]
