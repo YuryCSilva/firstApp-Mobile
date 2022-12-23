@@ -1,24 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { FlatList, Text, StyleSheet } from "react-native";
+import useProdutores from "../../../hooks/useProdutores";
 import { carregaProdutores } from "../../../services/carregaDados";
 import Produtor from "./Produtor";
 
-export default function Produtores({topo: Topo}) {
-    const [produtores, setProdutores] = useState(null);
+const ordenaLista = (a, b) => {
+    return a.distancia - b.distancia;
+}
 
-    useEffect(() => {
-        //utilizando timer para simular o tempo de resposta de uma API
-        const timer = setTimeout(() => {
-            async function carregaDadosProdutores() {
-                let dados = await carregaProdutores();
-                setProdutores(dados);
-            }
-
-            carregaDadosProdutores();
-        }, 2000);
-
-        return () => clearTimeout(timer);
-    },[])
+export default function Produtores({ topo: Topo }) {
+    const produtores = useProdutores();
 
     const TopoHeader = () => {
         return <>
@@ -27,11 +18,13 @@ export default function Produtores({topo: Topo}) {
         </>
     }
 
+    const lista = produtores?.lista.sort(ordenaLista);
+
     return <>
         {produtores &&
             <FlatList
-                data={produtores.lista}
-                renderItem={({item}) => <Produtor {...item} />}
+                data={lista}
+                renderItem={({ item }) => <Produtor {...item} />}
                 ListHeaderComponent={TopoHeader}
                 keyExtractor={({ nome }) => nome}
             />
